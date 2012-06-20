@@ -111,6 +111,8 @@ function run_scripts(event){
 }
 $('.run_scripts').click(run_scripts);
 
+}
+
 // End UI section
 
 
@@ -130,5 +132,3 @@ window.choice_lists = {
     fontweight: ['normal', 'bold', 'inherit'],
     directions: ['north', 'east', 'south', 'west', 'northeast', 'norhtwest', 'southwest', 'southeast']
 };
-
-}

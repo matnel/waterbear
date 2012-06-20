@@ -6,8 +6,7 @@ yepnope(
     }
 );
 
-
-function setup() { console.log("Acceleration setup");};
+function setup() {};
 
 var direction = "";
 var LR = 0;
@@ -21,11 +20,11 @@ var menus = {
     script: 'direction',
     type: 'string'
     } , {
-    label: 'when device turned left', 
+    label: 'when device turned [choice:directions]', 
     trigger: true,
     slot: false,
     containers: 1,
-    script: 'setInterval( function(){ if(direction.indexOf("west") != -1 ){ [[1]] } }, 1000);'
+    script: 'setInterval( function(){ if(direction.indexOf( {{1}} ) != -1 ){ [[1]] } }, 1000);'
         }
       ])
 }; 
@@ -51,11 +50,6 @@ function getTilt(){
 		//Raja, jossa kallistuskulma menee.
 		var limit = 10;
 		direction = "";
-/*		
-		console.log("FB: " + FB);
-		console.log("LR: " + LR);
-		console.log("DIR: " + DIR);
-*/
 		
 		//Väli-ilmansuunnat
 		if(FB > limit && LR > limit){
