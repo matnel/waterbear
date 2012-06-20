@@ -15,7 +15,7 @@ var FB = 0;
 var DIR = 0;
 
 var menus = {
-    accelerometer : menu('Accelerometer', [
+    accelerometer : menu('Motion', [
     {
     label: 'tilt direction',
     script: 'direction',
