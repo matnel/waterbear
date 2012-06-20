@@ -6,80 +6,74 @@ yepnope(
     }
 );
 
-function setup() {
+function setup() { console.log("Acceleration setup");};
 
-    var menus = {
-      accelerometer : menu('Accelerometer', [
-      {
-      label: 'tilt direction',
-      script: 'getTilt();',
-      type: 'string'
-    } /*, {
-      label: 'my friends',  
-      script: 'fb.friends.data',
-      type: 'array'
-    } , {
-	    label: 'me',
-      script: 'fb.me',
-      type: 'object'
-	  } , {
-      label: 'name of [object]',
-      script: '{{1}}.name',
-      type: 'string'
-	   } , {
-      label: 'image of [object]',
-      script: '"https://graph.facebook.com/" + {{1}}.id + "/picture"',
-      type: 'string'
-	   }*/
-    ] )
+var direction = "";
+var LR = 0;
+var FB = 0;
+var DIR = 0;
+
+var menus = {
+    accelerometer : menu('Accelerometer', [
+    {
+    label: 'tilt direction',
+    script: 'direction',
+    type: 'string'
     } 
-    console.log("menu tuli");
-};
+      ])
+}; 
 
-function getTilt(){
+if(window.DeviceOrientationEvent){
 
-    console.log("getTilt");
-
-	if(window.DeviceOrientationEvent){
-
-	window.addEventListener('deviceOrientation', function(eventData){
+	window.addEventListener('deviceorientation', function(eventData) {
 	
 	//Otetaan kallistuskulmat talteen
-		var LF = event.gamma;
-		var FB = event.beta;
-		var DIR = event.alpha;
-		}, false);
+		LR = event.gamma;
+		LB = event.beta;
+		DIR = event.alpha;
+		});
+}else{
+	console.log("Ei toomi tässä :/");
+}
+	
+function getTilt(){
 		
 		//Raja, jossa kallistus kulma menee.
 		var limit = 10;
+		direction = "";
 		
 		//Väli-ilmansuunnat
 		if(FB > limit && LF > limit){
-			return "northeast";
-		}else if(LF > limit && FB < -limit){
-			return "southeast";
-		}else if(LF < -limit && FB < -limit){
-			return "southwest";
-		}else if(LF < -limit && FB > limit){
-			return "northwest";
+			direction = "northeast";
+			return;
+		}else if(LR > limit && FB < -limit){
+			direction = "southeast";
+			return;
+		}else if(LR < -limit && FB < -limit){
+			direction = "southwest";
+			return;
+		}else if(LR < -limit && FB > limit){
+			direction = "northwest";
+			return;
 		}
 		
 		//Pääilmansuunnat
 		if(FB > limit){
-			return "north";
-		}else if(LF > limit){
-			return "east";
+			direction = "north";
+			return;
+		}else if(LR > limit){
+			direction = "east";
+			return;
 		}else if(FB < -limit){
-			return "south";
-		}else if(LF < -limit){
-			return "west";
+			direction = "south";
+			return;
+		}else if(LR < -limit){
+			direction =  "west";
+			return;
 		}
-	}else{
-		console.log("Ei toomi tässä :/");
-	}
 	
-	//Laitetta ei kallistettu tai kallistelu ei toiminut
-	return "null";
+		//Laitetta ei kallistettu tai kallistelu ei toiminut
+		return;
 };
 
 load_current_scripts();
@@ -89,5 +83,4 @@ $('.socket input').live('click',function(){
     $(this).focus();
     $(this).select();
 });
-
 
