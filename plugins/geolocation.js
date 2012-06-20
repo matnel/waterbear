@@ -21,6 +21,23 @@ var menus = {
     label: 'update location',
     script: 'navigator.geolocation.getCurrentPosition( function(data){ loc.latitude = data.coords.latitude; loc.longitude = data.coords.longitude; }, $.noop);'
     }
+/*
+// for future use
+ , {
+    label: 'nearby [location]',
+    script: '',
+    containers: 1,
+    trigger: true
+    } , {
+    label: 'distance between [location] and [location]',
+    script: '',
+    type: 'int'
+    } , {
+     label: 'location at [double:latitude] and [double:longitude]',
+     type: 'location',
+     script: '{latitude: {{1}}, longitude: {{2}} }' 
+    }
+*/
 ] ) }; 
 
 function location( data ) {
