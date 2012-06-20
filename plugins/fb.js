@@ -14,7 +14,7 @@ var fb = {}
 fb.me = {};
 
 // what user permissions should be requrested
-fb._permissions = 'user_about_me,user_photos,publish_stream';
+fb._permissions = 'user_about_me,user_photos,publish_stream,publish_checkins';
 
 var menus = {
     facebook : menu('Facebook', [
@@ -41,6 +41,9 @@ var menus = {
 		label: 'friend with name like [string]',
 		script: '(function(){var correct = {id: "", name: ""}; $.each( fb.friends.data , function(i, user) { if( user.name.indexOf( {{1}} ) != -1 ) correct = user; } ); return correct;})()',
 		type: 'object'
+		} , {
+		label: 'checkin at [location]',
+		script: 'FB.api("/me/checkins/", "post", { place: "", coordinates : { latitude: {{1}}.latitude, longitude: {{1}}.longitude } }, $.noop );'
 		}
     ])
 };
