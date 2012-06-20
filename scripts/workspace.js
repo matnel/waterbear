@@ -269,8 +269,8 @@ window.load_current_scripts = function(){
             load_scripts_from_object(blocks);
         }
     }
+	console.log("load");
 }
-// $(document).ready(load_current_scripts);
 
 // Tab UI
 
@@ -294,6 +294,7 @@ $('.tab_bar').delegate('.chrome_tab', 'click', tab_select);
 window.show_workspace = function(){
     $('.workspace:visible .scripts_text_view').hide();
     $('.workspace:visible .scripts_workspace').show();
+	
 }
 
 

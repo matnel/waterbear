@@ -1,6 +1,8 @@
 /* Styles for steps and containers */
 .wrapper, .socket, .autosocket{
   display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 20px;
   position: relative;
 }
 
@@ -48,7 +50,7 @@
   border-color: inherit;
   border-width: 2px;
   border-style: solid;
-  white-space: nowrap; 
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -183,7 +185,7 @@
   background-color: transparent;
   border-color: inherit;
   width: 100%;
-  overflow: visible; 
+  overflow: visible;
 }
 
 .block input {
@@ -218,8 +220,8 @@
 
 /*This class is added to the block that is bieng moved when it is aligned to snap in*/
 .drag_active{
-/*    background-color: green;*/
-/*    A box shadow might look nice here ?*/
+/* background-color: green;*/
+/* A box shadow might look nice here ?*/
 }
 
 /*This class is added to the block that is moving*/
@@ -268,5 +270,3 @@ span.socket select, span.autosocket select{
 .contained:last-child {
     margin-bottom: 10px;
 }
-
-
