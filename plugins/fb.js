@@ -22,11 +22,11 @@ var menus = {
             label: 'share [string]',
             script: 'FB.api("/me/feed/", "post", { message : {{1}} }, $.noop );'
         }, {
-            label: 'my friends', 
+            label: 'all my friends', 
             script: 'fb.friends.data',
             type: 'array'
         }, {
-	          label: 'me',
+	    label: 'me',
             script: 'fb.me',
             type: 'object'
 	      }, {
@@ -35,9 +35,11 @@ var menus = {
             type: 'string'
 	      }, {
             label: 'image of [object]',
-            script: '"https://graph.facebook.com/" + {{1}}.id + "/picture"',
-            type: 'string'
-	      }
+            script: '(function(){var img = new Image(); img.src="https://graph.facebook.com/" + {{1}}.id + "/picture"; return img;})',
+            type: 'image'
+	      }, {
+	        label: '[]
+             }
     ])
 };
 
