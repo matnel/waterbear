@@ -7,7 +7,7 @@ yepnope(
     }
 );
 
-function setup() { console.log("FB setup"); }
+function setup() {}
 
 // initialize empty object for fb data
 var fb = {}
@@ -30,14 +30,18 @@ var menus = {
             script: 'fb.me',
             type: 'object'
 	      }, {
-            label: 'name of [object]',
+            label: 'name of [any]',
             script: '{{1}}.name',
             type: 'string'
 	      }, {
-            label: 'image of [object]',
+            label: 'image of [any]',
             script: '(function(){var img = new Image(); img.src="https://graph.facebook.com/" + {{1}}.id + "/picture"; return img;})',
             type: 'image'
-	      }
+	      } , {
+		label: 'friend with name like [string]',
+		script: '(function(){var correct = {id: "", name: ""}; $.each( fb.friends.data , function(i, user) { if( user.name.indexOf( {{1}} ) != -1 ) correct = user; } ); return correct;})()',
+		type: 'object'
+		}
     ])
 };
 
