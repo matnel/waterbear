@@ -102,14 +102,17 @@
             "gamequery" : "plugins/gamequery.js",
             "fb" : "plugins/fb.js",
             "motion" : "plugins/accelerometer.js",
-            "base": "plugins/base.js",
+            "first": "plugins/base.js",
+	    "last": "plugins/finish.js",
  	    "location": "plugins/geolocation.js"
         };
 
         // load all modules separated by |
         q = q['plugin'].split('|');
-	// always load base, nomatter what
-        q.unshift('base');
+
+	// always load base and finish no matter what
+        q.unshift('first');
+	q.push('last');
 
         $.each( q , function( a, name ) {
 
@@ -139,7 +142,7 @@
 
 // TODO: FIXME as real solution
 
-setTimeout( function(){ console.log("Ihq"); $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
+// setTimeout( function(){ console.log("Ihq"); $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
 
     </script>
   </body>
