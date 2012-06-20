@@ -6,6 +6,7 @@ yepnope(
     }
 );
 
+
 function setup() { console.log("Acceleration setup");};
 
 var direction = "";

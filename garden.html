@@ -116,12 +116,13 @@
               yep : plugin,
               complete : function () {
                   if(! plugin ){
-                      window.location = "./";
+                      // window.location = "./";
                       alert('Sorry the plugin: \"'+ name +'\" does not exist. \n\n We\'ll rediect you back to the main page to choose one that is available.');
                   }
               }
           });
         } );
+
 		$('.run_scripts').button();
 		$('.goto_stage').button();
 		$('.clear_scripts').button();
@@ -131,6 +132,12 @@
 		$('.layout_blocks').button();
 		 setTimeout( function(){ console.log("Ihq");
                 $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
+
+// TODO: FIXME as real solution
+
+setTimeout( function(){ console.log("Ihq"); $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
+		
+>>>>>>> 17cd0388ac987290b6fe44ec1b08477fe8388270
     </script>
   </body>
 </html>
