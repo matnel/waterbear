@@ -17,9 +17,15 @@ var menus = {
     accelerometer : menu('Accelerometer', [
     {
     label: 'tilt direction',
-    script: 'direction',
+    script: 'getTilt()',
     type: 'string'
-    } 
+    } /*, {
+    label: 'when device turned [choice:directions]', 
+    trigger: true,
+    slot: false,
+    containers: 1,
+    script: 'setInterval(function(){if(direction == {{1}})([[1]])}, 1000);'
+        }*/
       ])
 }; 
 
@@ -29,8 +35,11 @@ if(window.DeviceOrientationEvent){
 	
 	//Otetaan kallistuskulmat talteen
 		LR = event.gamma;
-		LB = event.beta;
+		FB = event.beta;
 		DIR = event.alpha;
+		
+		//Päivitetään laitteen asento
+		getTilt();
 		});
 }else{
 	console.log("Ei toomi tässä :/");
@@ -38,42 +47,35 @@ if(window.DeviceOrientationEvent){
 	
 function getTilt(){
 		
-		//Raja, jossa kallistus kulma menee.
+		//Raja, jossa kallistuskulma menee.
 		var limit = 10;
 		direction = "";
 		
+		console.log("FB: " + FB);
+		console.log("LR: " + LR);
+		console.log("DIR: " + DIR);
+		
 		//Väli-ilmansuunnat
-		if(FB > limit && LF > limit){
+		if(FB > limit && LR > limit){
 			direction = "northeast";
-			return;
 		}else if(LR > limit && FB < -limit){
 			direction = "southeast";
-			return;
 		}else if(LR < -limit && FB < -limit){
 			direction = "southwest";
-			return;
 		}else if(LR < -limit && FB > limit){
 			direction = "northwest";
-			return;
-		}
-		
 		//Pääilmansuunnat
-		if(FB > limit){
+		}else if(FB > limit){
 			direction = "north";
-			return;
 		}else if(LR > limit){
 			direction = "east";
-			return;
 		}else if(FB < -limit){
 			direction = "south";
-			return;
 		}else if(LR < -limit){
 			direction =  "west";
-			return;
 		}
 	
-		//Laitetta ei kallistettu tai kallistelu ei toiminut
-		return;
+		return direction;
 };
 
 load_current_scripts();

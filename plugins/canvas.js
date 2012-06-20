@@ -130,7 +130,8 @@ window.choice_lists = {
     easing: ['>', '<', '<>', 'backIn', 'backOut', 'bounce', 'elastic'],
     fontweight: ['normal', 'bold', 'inherit'],
     globalCompositeOperators: ['source-over', 'source-atop', 'source-in', 'source-out', 'destination-atop', 'destination-in', 'destination-out', 'destination-over', 'lighter', 'copy', 'xor'],
-    repetition: ['repeat', 'repeat-x', 'repeat-y', 'no-repeat']
+    repetition: ['repeat', 'repeat-x', 'repeat-y', 'no-repeat'],
+    directions: ['north', 'east', 'south', 'west', 'northeast', 'norhtwest', 'southwest', 'southeast']
 };
 
 // Hints for building blocks
