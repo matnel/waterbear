@@ -37,9 +37,7 @@ var menus = {
             label: 'image of [object]',
             script: '(function(){var img = new Image(); img.src="https://graph.facebook.com/" + {{1}}.id + "/picture"; return img;})',
             type: 'image'
-	      }, {
-	        label: '[]
-             }
+	      }
     ])
 };
 
