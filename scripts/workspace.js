@@ -269,8 +269,9 @@ window.load_current_scripts = function(){
             load_scripts_from_object(blocks);
         }
     }
-	console.log("load");
 }
+
+$(document).ready(load_current_scripts);
 
 // Tab UI
 
