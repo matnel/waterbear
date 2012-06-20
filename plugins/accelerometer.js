@@ -18,15 +18,15 @@ var menus = {
     accelerometer : menu('Accelerometer', [
     {
     label: 'tilt direction',
-    script: 'getTilt()',
+    script: 'direction',
     type: 'string'
-    } /*, {
-    label: 'when device turned [choice:directions]', 
+    } , {
+    label: 'when device turned left', 
     trigger: true,
     slot: false,
     containers: 1,
-    script: 'setInterval(function(){if(direction == {{1}})([[1]])}, 1000);'
-        }*/
+    script: 'setInterval(function(){if(direction == "west")([[1]])}, 1000);'
+        }
       ])
 }; 
 
