@@ -127,7 +127,8 @@ window.choice_lists = {
     types: ['string', 'number', 'boolean', 'array', 'object', 'function','color', 'image', 'shape', 'any'],
     rettypes: ['none', 'string', 'number', 'boolean', 'array', 'object', 'function', 'color', 'image', 'shape', 'any'],
     easing: ['>', '<', '<>', 'backIn', 'backOut', 'bounce', 'elastic'],
-    fontweight: ['normal', 'bold', 'inherit']
+    fontweight: ['normal', 'bold', 'inherit'],
+    directions: ['north', 'east', 'south', 'west', 'northeast', 'norhtwest', 'southwest', 'southeast']
 };
 
 }
