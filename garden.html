@@ -108,6 +108,9 @@
 
         // load all modules separated by |
         q = q['plugin'].split('|');
+	// always load base, nomatter what
+        q.unshift('base');
+
         $.each( q , function( a, name ) {
 
           var plugin = libs[ name ];
