@@ -98,9 +98,13 @@
         $('.chrome_tab').hide();
 
         var q = $.parseQuery();
-        if(!q.plugin || q.plugin == "undefined" || q.plugin == null) 
-            window.location = "./";//If they don't have the plugin part of the query string lets send them back home.
 
+        //If they don't have the plugin part of the query string lets send them back home.
+        if(!q.plugin || q.plugin == "undefined" || q.plugin == null)  {
+            window.location = "./";
+        }
+
+        // todo: this would be nice to be somewhere elase
         var libs = {
             "javascript" : "plugins/javascript.js",
             "arduino" : "plugins/arduino.js",
@@ -113,16 +117,16 @@
 		    "last": "plugins/finish.js",
  		    "location": "plugins/geolocation.js",
 	 	    "time": "plugins/time.js",
-     	     "children": "plugins/children.js"
+     	    "children": "plugins/children.js"
 
         };
 
         // load all modules separated by |
         q = q['plugin'].split('|');
 
-	// always load base and finish no matter what
+	    // always load base and finish no matter what
         q.unshift('first');
-	q.push('last');
+	    q.push('last');
 
         $.each( q , function( a, name ) {
 
@@ -134,7 +138,7 @@
               complete : function () {
                   if(! plugin ){
                       // window.location = "./";
-                      alert('Sorry the plugin: \"'+ name +'\" does not exist. \n\n We\'ll rediect you back to the main page to choose one that is available.');
+                      alert('Sorry the plugin: \"'+ name +'\" does not exist.');
                   }
               }
           });
