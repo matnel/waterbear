@@ -4,7 +4,7 @@
 .motion > .block{ background-color: hsl(272, 85%, 68%); }
 
 .facebook{ border-color: hsl(221, 44%, 70%); }
-.facebook > .block{ background-color: hsl(221, 44%, 41%); }
+.facebook > .block{ background-color: hsl(221, 44%, 41%); color: white; }
 
 .time{ border-color: hsl(328, 78%, 79%); }
 .time > .block{ background-color: hsl(328, 78%, 56%); }
