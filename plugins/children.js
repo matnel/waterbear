@@ -108,6 +108,16 @@ var menus = {
             help: 'this trigger will run the attached blocks every time this key is pressed'
         },
         {
+            label: 'comment [string]',
+            script: '// {{1}};\n',
+            help: 'this is a comment and will not be run by the program'
+        },
+        {
+            label: 'popup [string]',
+            script: 'window.alert({{1}})',
+            help: 'pop up an alert window with string'
+        },
+        {
             label: 'repeat [number:30] times a second',
             trigger: true,
             slot: false,
@@ -350,16 +360,6 @@ var menus = {
             script: '{{1}}.toString()',
             type: 'string',
             help: 'convert any object to a string'
-        },
-        {
-            label: 'comment [string]',
-            script: '// {{1}};\n',
-            help: 'this is a comment and will not be run by the program'
-        },
-        {
-            label: 'alert [string]',
-            script: 'window.alert({{1}})',
-            help: 'pop up an alert window with string'
         }
     ], false),
     sensing: menu('Sensing', [
