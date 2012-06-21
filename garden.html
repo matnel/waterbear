@@ -5,7 +5,7 @@
     <title>Waterbear: Code Garden</title>
     <link href="stylesheets/workspace.css" rel="stylesheet" />
     <link href="stylesheets/blocks.css" rel="stylesheet" />
-	<link href="lib/css/ui-lightness/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+	<link href="lib/css/custom-theme2/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="viewport" content="height=device-height, initial-scale=1.0" />
@@ -23,11 +23,9 @@
             <div class="scripts_text_view_tab chrome_tab">Script Text</div>
             <button class="run_scripts">Run</button>
             <button class="goto_stage">Show Stage</button>
-            <button class="clear_scripts">Clear Scripts</button>
-            <button class="demo_scripts">Demos</button>
+            <button class="clear_scripts">Clear</button>
             <button class="save_scripts">Save</button>
             <button class="restore_scripts">Restore</button>
-            <button class="layout_blocks">Layout</button>
         </div>
         <div class="tab_bar2">
             <button class="goto_script">Back to Script</button>
@@ -130,13 +128,10 @@
           });
         } );
 
-		$('.run_scripts').button();
-		$('.goto_stage').button();
-		$('.clear_scripts').button();
-		$('.demo_scripts').button();
-		$('.save_scripts').button();
-		$('.restore_scripts').button();
-		$('.layout_blocks').button();
+		$(":button").button();
+		$('.scripts_text_view_tab').hide();
+		$('.chrome_tab').hide();
+		
 		// setTimeout( function(){ console.log("Ihq");
                 // $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
 
