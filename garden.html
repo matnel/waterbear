@@ -15,14 +15,15 @@
   </head>
   <body>
     <div class="content">
+        <div id='block_meny_template' class="block_menu">
+            Loading...
+        </div>
         <div id="block_menu" class="block_menu" style="display: none;">
-            
         </div>
         <div class="tab_bar">
             <div class="scripts_workspace_tab chrome_tab selected">Script Blocks</div>
             <div class="scripts_text_view_tab chrome_tab">Script Text</div>
             <button class="run_scripts">Run</button>
-            <button class="goto_stage">Stage</button>
             <button class="clear_scripts">Clear</button>
             <button class="save_scripts">Save</button>
             <button class="restore_scripts">Restore</button>
@@ -88,10 +89,23 @@
     <script src="scripts/workspace.js"></script>
 	<script src="lib/js/jquery-ui-1.8.21.custom.min.js"></script>
     <script>
-        var q = $.parseQuery();
-        if(!q.plugin || q.plugin == "undefined" || q.plugin == null) 
-            window.location = "./";//If they don't have the plugin part of the query string lets send them back home.
 
+        // buttonize
+        $(":button").button();
+        $(":button").css({width: "14%"});
+
+        // remove support texts
+        $('.scripts_text_view_tab').hide();
+        $('.chrome_tab').hide();
+
+        var q = $.parseQuery();
+
+        //If they don't have the plugin part of the query string lets send them back home.
+        if(!q.plugin || q.plugin == "undefined" || q.plugin == null)  {
+            window.location = "./";
+        }
+
+        // todo: this would be nice to be somewhere elase
         var libs = {
             "javascript" : "plugins/javascript.js",
             "arduino" : "plugins/arduino.js",
@@ -111,9 +125,9 @@
         // load all modules separated by |
         q = q['plugin'].split('|');
 
-	// always load base and finish no matter what
+	    // always load base and finish no matter what
         q.unshift('first');
-	q.push('last');
+	    q.push('last');
 
         $.each( q , function( a, name ) {
 
@@ -125,24 +139,11 @@
               complete : function () {
                   if(! plugin ){
                       // window.location = "./";
-                      alert('Sorry the plugin: \"'+ name +'\" does not exist. \n\n We\'ll rediect you back to the main page to choose one that is available.');
+                      alert('Sorry the plugin: \"'+ name +'\" does not exist.');
                   }
               }
           });
         } );
-
-		$(":button").button();
-		$('.scripts_text_view_tab').hide();
-		$('.chrome_tab').hide();
-		$(":button").css({width: "12%"});
-		
-		// setTimeout( function(){ console.log("Ihq");
-                // $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
-
-// TODO: FIXME as real solution
-
-// setTimeout( function(){ console.log("Ihq"); $('#block_menu').accordion({ autoHeight: false }); }, 10000 );
-
     </script>
   </body>
 </html>

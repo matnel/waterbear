@@ -19,6 +19,6 @@ yepnope(
 function setup(){
 
     console.log('All done?');
-    $('#block_menu').accordion({ autoHeight: false });
+    $('#block_menu').accordion({ autoHeight: false,  collapsible: true });
     $('#block_menu').show();
 };
