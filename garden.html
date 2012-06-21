@@ -88,6 +88,15 @@
     <script src="scripts/workspace.js"></script>
 	<script src="lib/js/jquery-ui-1.8.21.custom.min.js"></script>
     <script>
+
+        // buttonize
+        $(":button").button();
+        $(":button").css({width: "12%"});
+
+        // remove support texts
+        $('.scripts_text_view_tab').hide();
+        $('.chrome_tab').hide();
+
         var q = $.parseQuery();
         if(!q.plugin || q.plugin == "undefined" || q.plugin == null) 
             window.location = "./";//If they don't have the plugin part of the query string lets send them back home.
@@ -130,11 +139,6 @@
               }
           });
         } );
-
-		$(":button").button();
-		$('.scripts_text_view_tab').hide();
-		$('.chrome_tab').hide();
-		$(":button").css({width: "12%"});
     </script>
   </body>
 </html>
