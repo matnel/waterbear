@@ -8,23 +8,24 @@ yepnope(
 
 function setup() {};
 
-var direction = "";
-var LR = 0;
-var FB = 0;
-var DIR = 0;
+var accelerometer = {};
+accelerometer.direction = "";
+accelerometer.LR = 0;
+accelerometer.FB = 0;
+accelerometer.DIR = 0;
 
 var menus = {
     accelerometer : menu('Motion', [
     {
     label: 'tilt direction',
-    script: 'direction',
+    script: 'accelerometer.direction',
     type: 'string'
     } , {
     label: 'when device turned [choice:directions]', 
     trigger: true,
     slot: false,
     containers: 1,
-    script: 'setInterval( function(){ if(direction.indexOf( {{1}} ) != -1 ){ [[1]] } }, 1000);'
+    script: 'setInterval( function(){ if(accelerometer.direction.indexOf( {{1}} ) != -1 ){ [[1]] } }, 1000);'
         }
       ])
 }; 
@@ -34,9 +35,9 @@ if(window.DeviceOrientationEvent){
 	window.addEventListener('deviceorientation', function(eventData) {
 	
 	//Otetaan kallistuskulmat talteen
-		LR = event.gamma;
-		FB = event.beta;
-		DIR = event.alpha;
+		accelerometer.LR = event.gamma;
+		accelerometer.FB = event.beta;
+		accelerometer.DIR = event.alpha;
 		
 		//Päivitetään laitteen asento
 		getTilt();
@@ -49,29 +50,29 @@ function getTilt(){
 		
 		//Raja, jossa kallistuskulma menee.
 		var limit = 10;
-		direction = "";
+		accelerometer.direction = "";
 		
 		//Väli-ilmansuunnat
-		if(FB > limit && LR > limit){
-			direction = "upright";
-		}else if(LR > limit && FB < -limit){
-			direction = "downright";
-		}else if(LR < -limit && FB < -limit){
-			direction = "downleft";
-		}else if(LR < -limit && FB > limit){
-			direction = "upright";
+		if(accelerometer.FB > limit && accelerometer.LR > limit){
+			accelerometer.direction = "upright";
+		}else if(accelerometer.LR > limit && accelerometer.FB < -limit){
+			accelerometer.direction = "downright";
+		}else if(accelerometer.LR < -limit && accelerometer.FB < -limit){
+			accelerometer.direction = "downleft";
+		}else if(accelerometer.LR < -limit && accelerometer.FB > limit){
+			accelerometer.direction = "upright";
 		//Pääilmansuunnat
-		}else if(FB > limit){
-			direction = "up";
-		}else if(LR > limit){
-			direction = "right";
-		}else if(FB < -limit){
-			direction = "down";
-		}else if(LR < -limit){
-			direction =  "left";
+		}else if(accelerometer.FB > limit){
+			accelerometer.direction = "up";
+		}else if(accelerometer.LR > limit){
+			accelerometer.direction = "right";
+		}else if(accelerometer.FB < -limit){
+			accelerometer.direction = "down";
+		}else if(accelerometer.LR < -limit){
+			accelerometerdirection =  "left";
 		}
 	
-		return direction;
+		return accelerometer.direction;
 };
 
 load_current_scripts();
