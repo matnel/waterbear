@@ -9,7 +9,7 @@ yepnope(
 function setup() {};
 
 var menus = {
-    Time : menu('Time', [
+    time : menu('Time', [
     {
     label: 'hours',
     script: '(function(){var d = new Date(); return d.getHours();})()',
