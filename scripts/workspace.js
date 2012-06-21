@@ -78,7 +78,8 @@ function save_current_scripts(){
     $('#block_menu')[0].scrollIntoView();
     localStorage['__current_scripts'] = JSON.stringify(scripts_as_object());
 }
-$(window).unload(save_current_scripts);
+// removed for dev & demo purposes
+// $(window).unload(save_current_scripts);
 
 
 function save_named_scripts(){
