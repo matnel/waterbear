@@ -1,7 +1,19 @@
 /* block and border colours for different groups of blocks */
 
-.motion{ border-color: hsl(225,65%,83%); }
-.motion > .block{ background-color: hsl(225, 65%, 93%); }
+.motion{ border-color: hsl(272, 85%, 47%); }
+.motion > .block{ background-color: hsl(272, 85%, 68%); }
+
+.facebook{ border-color: hsl(221, 44%, 70%); }
+.facebook > .block{ background-color: hsl(221, 44%, 41%); }
+
+.time{ border-color: hsl(328, 78%, 79%); }
+.time > .block{ background-color: hsl(328, 78%, 56%); }
+
+.sound{ border-color: hsl(19, 85%, 82%); }
+.sound > .block{ background-color: hsl(19, 85%, 68%); }
+
+.geolocation{ border-color: hsl(29, 45%, 75%); }
+.geolocation> .block{ background-color: hsl(29, 45%, 43%); }
 
 .looks{ border-color: hsl(264,62%,79%); }
 .looks > .block{ background-color: hsl(264,62%,89%); }
