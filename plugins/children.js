@@ -237,12 +237,6 @@ var menus = {
             type: 'any',
             help: 'remove and return the last item from an array'
         },
-        {
-            label: 'array [array] shift',
-            script: '{{1}}.shift()',
-            type: 'any',
-            help: 'remove and return the first item from an array'
-        },
         {   
             label: 'array [array] reversed',
             script: '{{1}}.slice().reverse()',
@@ -366,16 +360,6 @@ var menus = {
             label: 'alert [string]',
             script: 'window.alert({{1}})',
             help: 'pop up an alert window with string'
-        },
-        {
-            label: 'console log [any]',
-            script: 'console.log({{1}})',
-            help: 'Send any object as a message to the console'
-        },
-        {
-            label: 'console log format [string] arguments [array]',
-            script: 'var __a={{2}};__a.unshift({{1}});console.log.apply(console, __a);',
-            help: 'send a message to the console with a format string and multiple objects'
         }
     ], false),
     sensing: menu('Sensing', [
@@ -487,7 +471,7 @@ var menus = {
             help: 'first operand is less than second operand'
         },
         {
-            label: '[number:0] = [number:0]', 
+            label: '[number:0] == [number:0]', 
             'type': 'boolean', 
             script: "({{1}} === {{2}})",
             help: 'two operands are equal'
@@ -541,7 +525,7 @@ var menus = {
             help: 'rounds to the nearest whole number'
         },
         {
-            label: 'absolute of [number:10]', 
+            label: 'absolute value of [number:10]', 
             'type': 'number', 
             script: "Math.abs({{2}})",
             help: 'converts a negative number to positive, leaves positive alone'
@@ -553,40 +537,10 @@ var menus = {
             help: 'inverse of cosine'
         },
         {
-            label: 'arcsine degrees of [number:10]', 
-            'type': 'number', 
-            script: 'rad2deg(Math.asin({{1}}))',
-            help: 'inverse of sine'
-        },
-        {
-            label: 'arctangent degrees of [number:10]', 
-            'type': 'number', 
-            script: 'rad2deg(Math.atan({{1}}))',
-            help: 'inverse of tangent'
-        },
-        {
             label: 'ceiling of [number:10]', 
             'type': 'number', 
             script: 'Math.ceil({{1}})',
             help: 'rounds up to nearest whole number'
-        },
-        {
-            label: 'cosine of [number:10] degrees', 
-            'type': 'number', 
-            script: 'Math.cos(deg2rad({{1}}))',
-            help: 'ratio of the length of the adjacent side to the length of the hypotenuse'
-        },
-        {
-            label: 'sine of [number:10] degrees', 
-            'type': 'number', 
-            script: 'Math.sin(deg2rad({{1}}))',
-            help: 'ratio of the length of the opposite side to the length of the hypotenuse'
-        },
-        {
-            label: 'tangent of [number:10] degrees', 
-            'type': 'number', 
-            script: 'Math.tan(deg2rad({{1}}))',
-            help: 'ratio of the length of the opposite side to the length of the adjacent side'
         },
         {
             label: '[number:10] to the power of [number:2]', 
@@ -768,38 +722,6 @@ var menus = {
             help: 'change the font weight for the text object'
         }
     ]),
-    text: menu('Sketchy', [
-        {
-            label: 'sketchy rect## with width [number:50] and height [number:50] at position x [number:0] y [number:0]', 
-            script: 'local.shape## = global.paper.sk_rect({{3}},{{4}}, {{1}},{{2}});',
-            returns: {
-                label: 'sketchy rect##',
-                script: 'local.shape##',
-                type: 'shape'
-            },
-            help: 'draw a sketchy rect'
-        },
-        {
-            label: 'sketchy ellipse## with width [number:50] and height [number:50] at position x [number:0], y [number:0]', 
-            script: 'local.shape## = global.paper.sk_ellipse({{3}},{{4}}, {{1}}, {{2}});',
-            returns: {
-                label: 'sketchy ellipse##',
-                script: 'local.shape##',
-                type: 'shape'
-            },
-            help: 'draw a sketchy ellipse'
-        },
-        {
-            label: 'sketchy line## from x1 [number:10] y1 [number:10] to x2 [number:40] y2 [number:40]', 
-            script: 'local.shape## = global.paper.sk_line({{1}}, {{2}}, {{3}}, {{4}});',
-            returns: {
-                label: 'sketchy line##',
-                script: 'local.shape##',
-                type: 'shape'
-            },
-            help: 'draw a sketchy line between two points'
-        }
-    ]),
     transform: menu('Transform', [
         {
             label: 'clear canvas', 
@@ -817,22 +739,12 @@ var menus = {
             help: 'show the object'
         },
         {
-            label: 'shape [shape] rotate by [number:0] degrees', 
-            script: '{{1}}.rotate({{2}}, false);',
-            help: 'rotate the object'
-        },
-        {
             label: 'shape [shape] rotate to [number:0] degrees', 
             script: '{{1}.rotate({{2}}, true);',
             help: 'rotate the object to the given angle around its own center'
         },
         {
-            label: 'shape [shape] rotate to [number:0] around x: [number:0] y: [number:0]', 
-            script: '{{1}}.rotate({{2}}, {{3}}, {{4}}, true);',
-            help: 'rotate the current object to the given angle around an arbitrary point'
-        },
-        {
-            label: 'shape [shape] translate by x: [number:0] y: [number:0]', 
+            label: 'move shape [shape] by x: [number:0] y: [number:0]', 
             script: '{{1}}.translate({{2}}, {{3}});',
             help: 'move the object by the given distances'
         },
@@ -850,11 +762,6 @@ var menus = {
             label: 'shape [shape] scale by [number:0]', 
             script: '{{1}}.scale({{2}}, {{3}});',
             help: 'resize the object by the given scale'
-        },
-        {
-            label: 'shape [shape] scaled by [number:0] centered at x: [number:0] y: [number:0]', 
-            script: '{{1}}.scale({{2}}, {{3}}, {{4}}, {{5}});',
-            help: 'resize the object with scaling centered at an arbitrary point'
         },
         {
             label: 'shape [shape] to front', 
@@ -924,27 +831,31 @@ var menus = {
             help: 'cancels all animations'
         }
     ]),
-        animation: menu('Twitter', [
+    image: menu('Image', [
+        // TODO: Change this to a container : when loaded, that fires on image load
         {
-            label: 'get tweet for [string]',
-            containers: 1,
-            script: 'local.getTweet({{1}}, function(tweet){local.tweet## = tweet;[[1]]});',
-            returns: {
-                label: 'last tweet##',
-                script: 'local.tweet## || "waiting…"',
-                type: 'string'
-            },
-            help: 'asynchronous call to get the last tweet of the named account'
+            label: 'image from url [string]',
+            script: '(function(){var img = new Image(); img.src="{{1}}";return img;})()',
+            type: 'image'
+        },
+        {
+            label: 'image [image] width',
+            script: '{{1}}.width',
+            type: 'number'
+        },
+        {
+            label: 'image [image] height',
+            script: '{{1}}.height',
+            type: 'number'
+        },
+        {
+            label: 'image [image] url',
+            script: '{{1}}.width',
+            type: 'string'
         }
     ])
 };
 
-var demos = [
-    {title: 'Rotating Squares',
-     description: 'Just a simple animation test',
-     scripts: [{"klass":"control","label":"when program runs","script":"function _start(){[[1]]}_start();","containers":1,"trigger":true,"locals":[],"sockets":[],"contained":[{"klass":"control","label":"repeat [number:10]","script":"range({{1}}).forEach(function(idx, item){local.count = idx; local.last_var = item;[[1]]});","containers":1,"locals":[{"label":"loop index","script":"local.index","type":"number","klass":"control"}],"sockets":["10"],"contained":[{"klass":"shapes","label":"rect_1 with width [number:0] and height [number:0] at position x [number:0] y [number:0]","script":"local.shape_1 = global.paper.rect({{3}}, {{4}}, {{1}}, {{2}});","containers":0,"locals":[],"returns":{"label":"rect_1","script":"local.shape_1","type":"shape","klass":"shapes"},"sockets":["40","40",{"klass":"operators","label":"pick random [number:1] to [number:10]","script":"randint({{1}}, {{2}})","containers":0,"type":"number","locals":[],"sockets":["1",{"klass":"sensing","label":"stage width","script":"global.stage_width","containers":0,"type":"number","locals":[],"sockets":[],"contained":[],"next":""}],"contained":[],"next":""},{"klass":"operators","label":"pick random [number:1] to [number:10]","script":"randint({{1}}, {{2}})","containers":0,"type":"number","locals":[],"sockets":["1",{"klass":"sensing","label":"stage height","script":"global.stage_height","containers":0,"type":"number","locals":[],"sockets":[],"contained":[],"next":""}],"contained":[],"next":""}],"contained":[],"next":{"klass":"animation","label":"shape [shape] rotation [number:15] degrees over [number:500] ms with [choice:easing]","script":"{{1}}.animate({rotation: {{2}} }, {{3}}, {{4}});","containers":0,"locals":[],"sockets":[{"klass":"shapes","label":"rect_1","script":"local.shape_1","containers":0,"type":"shape","locals":[],"sockets":[],"contained":[],"next":""},"360","2000",">"],"contained":[],"next":""}}],"next":""}],"next":""}]}    
-];
-populate_demos_dialog(demos);
 load_current_scripts();
 $('.scripts_workspace').trigger('init');
 console.log("Done");
