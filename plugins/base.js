@@ -130,5 +130,5 @@ window.choice_lists = {
     rettypes: ['none', 'string', 'number', 'boolean', 'array', 'object', 'function', 'color', 'image', 'shape', 'any'],
     easing: ['>', '<', '<>', 'backIn', 'backOut', 'bounce', 'elastic'],
     fontweight: ['normal', 'bold', 'inherit'],
-    directions: ['north', 'east', 'south', 'west', 'northeast', 'norhtwest', 'southwest', 'southeast']
+    directions: ['up', 'right', 'down', 'left', 'upright', 'upleft', 'downleft', 'downright']
 };

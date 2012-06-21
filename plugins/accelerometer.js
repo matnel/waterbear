@@ -53,22 +53,22 @@ function getTilt(){
 		
 		//Väli-ilmansuunnat
 		if(FB > limit && LR > limit){
-			direction = "northeast";
+			direction = "upright";
 		}else if(LR > limit && FB < -limit){
-			direction = "southeast";
+			direction = "downright";
 		}else if(LR < -limit && FB < -limit){
-			direction = "southwest";
+			direction = "downleft";
 		}else if(LR < -limit && FB > limit){
-			direction = "northwest";
+			direction = "upright";
 		//Pääilmansuunnat
 		}else if(FB > limit){
-			direction = "north";
+			direction = "up";
 		}else if(LR > limit){
-			direction = "east";
+			direction = "right";
 		}else if(FB < -limit){
-			direction = "south";
+			direction = "down";
 		}else if(LR < -limit){
-			direction =  "west";
+			direction =  "left";
 		}
 	
 		return direction;
