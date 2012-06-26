@@ -76,6 +76,10 @@ function getTilt(){
 };
 
 load_current_scripts();
+
+// TODO: FIXME: this should also disable the setInterval-method
+$('body').bind('stop', function(e){ window.removeEventListener('deviceorientation'); })
+
 $('.scripts_workspace').trigger('init');
 
 $('.socket input').live('click',function(){
